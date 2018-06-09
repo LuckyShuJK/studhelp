@@ -12,7 +12,6 @@
 * 项目管理：Maven
 * 爬虫：Jsoup
 * 使用Spring + Spring-MVC + MyBatis整合
-* 在用户的登录等地方使用JQuery的$Ajax异步调用
 
 
 ## 主要功能
