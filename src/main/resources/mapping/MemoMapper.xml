@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hust.dao.MemoDao">
+  
+      <insert id="addMemo" parameterType="com.hust.entity.Memo">
+            INSERT INTO memo (student_id, create_time, title, detail, home) VALUES (#{studentId}, #{createTime}, #{title}, #{detail}, #{home})
+      </insert>
+      
+      <select id="queryMemoById" parameterType="java.lang.String" resultType="com.hust.entity.Memo">
+            SELECT * FROM memo WHERE student_id=#{studentId}
+      </select>
+      
+      <update id="updateMemo" parameterType="com.hust.entity.Memo">
+            UPDATE memo SET title=#{title}, detail=#{detail}, home=#{home} WHERE student_id=#{studentId} AND create_time=#{createTime}
+      </update>
+      
+      <delete id="deleteMemo" parameterType="java.lang.String">
+            DELETE from memo where student_id=#{studentId} AND create_time=#{createTime}
+      </delete>
+      
+      <select id="queryHomeMemoById" parameterType="java.lang.String" resultType="com.hust.entity.Memo">
+            SELECT * FROM memo WHERE student_id=#{studentId} AND home='1'
+      </select>
+  
+</mapper>

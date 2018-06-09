@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hust.dao.CoursetableDao">
+      
+      <select id="queryCoursetableById" parameterType="java.lang.String" resultType="com.hust.entity.Coursetable">
+            SELECT * FROM coursetable WHERE student_id=#{username} ORDER BY class_no ASC
+      </select>
+      
+      <insert id="upadteCoursetable" parameterType="com.hust.entity.Coursetable">
+            REPLACE INTO coursetable (student_id, class_no, mon, tue, wed, thu, fri, sat, sun) VALUES (#{studentId}, #{classNo}, #{mon}, #{tue}, #{wed}, #{thu}, #{fri}, #{sat}, #{sun})
+      </insert>
+    
+      <select id="queryDaytableById" parameterType="java.lang.String" resultType="java.lang.String">
+            SELECT ${day} FROM coursetable WHERE student_id=#{studentId}
+      </select>
+      
+      <insert id="regester" parameterType="String">
+            INSERT INTO coursetable (student_id, class_no) VALUES (#{studentId}, 1),(#{studentId}, 2),(#{studentId}, 3),(#{studentId}, 4),(#{studentId}, 5)
+      </insert>
+
+</mapper>

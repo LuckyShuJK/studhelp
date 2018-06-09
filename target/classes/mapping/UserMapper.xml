@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hust.dao.UserDao">
+     
+     <select id="login" parameterType="java.lang.String" resultType="com.hust.entity.User">
+           SELECT * FROM user WHERE username=#{username} AND password=#{password}
+     </select>
+     
+     <update id="revisePassword" parameterType="java.lang.String">
+            UPDATE user SET password=#{revisepwd} WHERE username=#{studentId}
+     </update>
+     
+     <update id="updateUser" parameterType="com.hust.entity.User">
+            UPDATE user SET name=#{name}, sex=#{sex}, collage=#{collage}, major=#{major}, grade=#{grade}, class_no=#{classNo}, phone=#{phone}, email=#{email}, identity=#{identity} ,ismailsecret=#{ismailsecret}, isphonesecret=#{isphonesecret} WHERE username =#{username};
+     </update>
+     
+     <select id="queryUserById" parameterType="java.lang.String" resultType="com.hust.entity.User" >
+            SELECT * FROM  USER  WHERE username=#{username}
+     </select>
+     
+     <insert id="regester" parameterType="com.hust.entity.User">
+            INSERT INTO user (username, password, name, sex, collage, major, grade, class_no, phone, email, identity,ismailsecret, isphonesecret) VALUES (#{username}, #{password}, #{name}, #{sex}, #{collage}, #{major}, #{grade}, #{classNo}, #{phone}, #{email}, #{identity}, #{ismailsecret}, #{ismailsecret});
+     </insert>
+     
+     <update id="updateIntroduction" parameterType="java.lang.String">
+            UPDATE user SET introduction=#{0} WHERE username=#{1}
+     </update>
+     
+     <select id="getUserlistByUser" parameterType="com.hust.entity.User" resultType="com.hust.entity.User">
+            SELECT * FROM user WHERE collage=#{collage} AND major=#{major} AND grade=#{grade} AND class_no=#{classNo}
+     </select>
+      
+</mapper>

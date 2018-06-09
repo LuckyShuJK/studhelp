@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+          "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hust.dao.ExamscheduleDao">
+
+     <insert id="addExamschedule" parameterType="com.hust.entity.Examschedule">
+           INSERT INTO examschedule (student_id, exam_name, exam_time, remark, exam_place, create_time) VALUES (#{studentId}, #{examName}, #{examTime}, #{remark}, #{examPlace}, #{createTime})
+     </insert>
+     
+     <select id="queryExamscheduleById" parameterType="java.lang.String" resultType="com.hust.entity.Examschedule">
+           SELECT * FROM examschedule WHERE student_id=#{studentId}
+     </select>
+     
+     <delete id="deleteExamscheduleByName" parameterType="java.lang.String">
+           DELETE FROM examschedule WHERE student_id=#{1} AND exam_name=#{0} AND create_time=#{2};
+     </delete>
+     
+     <update id="updateExamscheduleById" parameterType="com.hust.entity.Examschedule">
+           UPDATE examschedule SET student_id=#{studentId}, exam_name=#{examName}, exam_time=#{examTime}, remark=#{remark}, exam_place=#{examPlace} WHERE student_id=#{studentId} and exam_name=#{oldName};
+     </update>
+
+</mapper>
