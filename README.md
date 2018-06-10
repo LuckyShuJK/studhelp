@@ -1,7 +1,7 @@
 # studhelp
 # HUST Student Helper System
 
-## 华中科技大学学生校园助手
+## 华中科技大学校园助手
 
 ## 项目介绍
 * IDE ： Eclipse4.7
